@@ -208,7 +208,7 @@ function ConjugateGradient() {
 					{Iteration == MAX ? "Max" : Iteration} | Error ={" "}
 					{inaccuracy.toPrecision(7)}
 				</h5>
-				<Plot
+				{/*<Plot
 					data={[
 						{
 							z: [
@@ -268,7 +268,7 @@ function ConjugateGradient() {
 						plot_bgcolor: "black",
 					}}
 					config={{ displaylogo: false, scrollZoom: true }}
-				/>
+				/> */}
 
 				{OutputTable}
 			</div>

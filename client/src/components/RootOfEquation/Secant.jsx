@@ -237,7 +237,7 @@ const Secant = () => {
 							x: data.map((inputX) => inputX.X),
 							y: data.map((inputY) => inputY.Y),
 							type: "scatter",
-							mode: "lines+markers",
+							mode: "markers",
 							name: "Secant",
 							marker: { color: "yellow", size: 8 },
 							line: { color: "red", width: 2 },
