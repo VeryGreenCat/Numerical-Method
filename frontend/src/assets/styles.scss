@@ -1,1 +1,33 @@
 @import 'bootstrap/scss/bootstrap';
+
+:root {
+  --bg-dark: #0f172a;
+  --bg-darker: #020617;
+  --accent-cyan: #22d3ee;
+  --accent-purple: #8b5cf6;
+}
+
+body {
+  background-color: var(--bg-darker);
+  color: #f8fafc;
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #f472b6 0%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
