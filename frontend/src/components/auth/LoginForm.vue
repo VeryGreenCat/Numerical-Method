@@ -61,7 +61,7 @@ const handleSubmit = () => {
         @click="handleSubmit"
         class="btn btn-primary btn-lg w-100 py-3 fw-bold custom-login-btn mb-4"
       >
-        LOG IN <i class="bi bi-arrow-right-short ms-1"></i>
+        SIGN IN <i class="bi bi-arrow-right-short ms-1"></i>
       </button>
 
       <div class="text-center pt-2">
