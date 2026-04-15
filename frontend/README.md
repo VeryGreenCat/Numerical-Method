@@ -71,3 +71,5 @@ bun test:e2e --debug
 ```sh
 bun lint
 ```
+
+Testing DevOps Bridge: 15/04/2026
