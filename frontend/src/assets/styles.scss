@@ -31,3 +31,141 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.bg-effects-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background-color: var(--bg-darker);
+}
+
+.math-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  mask-image: radial-gradient(circle, black, transparent 80%);
+}
+
+.glow-orb {
+  position: absolute;
+  width: 60vh;
+  height: 60vh;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.top-orb {
+  top: -10%;
+  right: -5%;
+  background: var(--accent-cyan);
+}
+
+.bottom-orb {
+  bottom: -10%;
+  left: -5%;
+  background: var(--accent-purple);
+  animation-delay: -5s;
+}
+
+/* Typography & Display */
+.display-0 {
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  line-height: 1;
+}
+
+.tracking-tight {
+  letter-spacing: -0.04em;
+}
+
+.hero-description {
+  max-width: 800px;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.6;
+}
+
+/* UI Components */
+.feature-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(34, 211, 238, 0.2);
+  transform: translateY(-5px);
+}
+
+.feature-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background: rgba(34, 211, 238, 0.1);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Buttons */
+.custom-btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  border: none;
+  background: linear-gradient(135deg, #0d6efd 0%, #3b82f6 100%);
+  position: relative;
+  overflow: hidden;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+.custom-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(13, 110, 253, 0.4) !important;
+}
+
+.custom-btn-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  font-weight: 600;
+  color: #f8fafc;
+  transition: all 0.3s ease;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+.custom-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-3px);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pulse-glow {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(13, 110, 253, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+  }
+}
