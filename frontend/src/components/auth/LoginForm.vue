@@ -20,7 +20,7 @@ const handleSubmit = () => {
     ></button>
 
     <!-- Header -->
-    <div class="text-center mb-5">
+    <div class="text-center mb-3">
       <div class="icon-box mx-auto mb-3">
         <i class="bi bi-shield-lock-fill text-gradient-cyan fs-2"></i>
       </div>
@@ -98,6 +98,7 @@ const handleSubmit = () => {
 
 .tracking-wider {
   letter-spacing: 0.1em;
+  font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
 .tracking-tight {
