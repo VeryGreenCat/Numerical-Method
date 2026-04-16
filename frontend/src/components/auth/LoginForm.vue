@@ -61,7 +61,7 @@ const handleSubmit = () => {
         @click="handleSubmit"
         class="btn btn-primary btn-lg w-100 py-3 fw-bold custom-login-btn mb-4"
       >
-        SIGN IN <i class="bi bi-arrow-right-short ms-1"></i>
+        LOG IN <i class="bi bi-arrow-right-short ms-1"></i>
       </button>
 
       <div class="text-center pt-2">
@@ -79,7 +79,6 @@ const handleSubmit = () => {
 <style scoped>
 .login-form-container {
   background: rgba(15, 23, 42, 0.9);
-  backdrop-filter: blur(20px);
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -113,11 +112,12 @@ const handleSubmit = () => {
 
 .input-icon {
   position: absolute;
-  left: 1.25rem;
+  left: 1.25em;
   font-size: 1.1rem;
 }
 
 .form-control-custom {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   width: 100%;
   padding: 1rem 1.25rem 1rem 3.25rem;
   background: rgba(255, 255, 255, 0.03);
@@ -138,6 +138,7 @@ const handleSubmit = () => {
 }
 
 .custom-login-btn {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   background: linear-gradient(135deg, #0d6efd 0%, #3b82f6 100%);
   border: none;
   border-radius: 1rem;

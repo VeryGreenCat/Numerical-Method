@@ -79,7 +79,7 @@ import LoginForm from '../components/auth/LoginForm.vue'
 
   <!-- Login Modal -->
   <div class="modal fade" id="loginModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content glass-card border-0 rounded-4 overflow-hidden h-100">
         <div class="modal-body p-0 h-100">
           <LoginForm />
