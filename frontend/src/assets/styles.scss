@@ -129,6 +129,7 @@ body {
   position: relative;
   overflow: hidden;
   font-size: clamp(0.9rem, 2vw, 1.1rem);
+  white-space: nowrap;
 }
 
 .custom-btn:hover {
@@ -144,6 +145,7 @@ body {
   color: #f8fafc;
   transition: all 0.3s ease;
   font-size: clamp(0.9rem, 2vw, 1.1rem);
+  white-space: nowrap;
 }
 
 .custom-btn-secondary:hover {
