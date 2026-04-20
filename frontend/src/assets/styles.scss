@@ -16,6 +16,18 @@ body {
     -apple-system,
     sans-serif;
   transition: background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.bg-effects-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  background-color: var(--bg-darker);
 }
 
 .text-gradient-cyan {
@@ -31,18 +43,6 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-.bg-effects-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-  background-color: var(--bg-darker);
-}
-
 .math-grid {
   position: absolute;
   top: 0;
@@ -87,13 +87,11 @@ body {
 }
 
 .tracking-tight {
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
 }
 
-.hero-description {
-  max-width: 800px;
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  line-height: 1.6;
+.tracking-wider {
+  letter-spacing: 0.1em;
 }
 
 /* UI Components */
@@ -128,7 +126,7 @@ body {
   background: linear-gradient(135deg, #0d6efd 0%, #3b82f6 100%);
   position: relative;
   overflow: hidden;
-  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
   white-space: nowrap;
 }
 
