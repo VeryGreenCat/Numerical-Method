@@ -68,7 +68,7 @@ import LoginForm from '../components/auth/LoginForm.vue'
   <!-- Login Modal -->
   <div class="modal fade" id="loginModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
-      <div class="modal-content border-0 rounded-4 overflow-hidden">
+      <div class="modal-content border-0 rounded-md-4 overflow-hidden">
         <div class="modal-body p-0">
           <LoginForm />
         </div>
@@ -78,6 +78,14 @@ import LoginForm from '../components/auth/LoginForm.vue'
 </template>
 
 <style scoped>
+.rounded-md-4 {
+  border-radius: 0; /* Sharp on mobile */
+
+  @media (min-width: 768px) {
+    border-radius: 1rem !important; /* Rounded on Desktop (matches rounded-4) */
+  }
+}
+
 .hero-description {
   max-width: 800px;
   font-size: clamp(1rem, 2.5vw, 1.25rem);
