@@ -1,11 +1,31 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+const isLogin = ref(true)
 const email = ref('')
 const password = ref('')
+const confirmPassword = ref('')
+
+const toggleMode = () => {
+  isLogin.value = !isLogin.value
+  password.value = ''
+  confirmPassword.value = ''
+}
 
 const handleSubmit = () => {
-  console.log('Login attempt:', { email: email.value, password: password.value })
+  if (isLogin.value) {
+    console.log('Login attempt:', { email: email.value, password: password.value })
+  } else {
+    if (password.value !== confirmPassword.value) {
+      console.log('Passwords do not match')
+      return
+    }
+    console.log('Register attempt:', {
+      email: email.value,
+      password: password.value,
+      confirmPassword: confirmPassword.value,
+    })
+  }
 }
 </script>
 
@@ -22,9 +42,19 @@ const handleSubmit = () => {
     <!-- Header -->
     <div class="text-center mb-4">
       <div class="icon-box mx-auto mb-3">
-        <i class="bi bi-shield-lock-fill text-gradient-cyan fs-2"></i>
+        <Transition name="fade-scale" mode="out-in">
+          <i
+            :key="isLogin ? 'login' : 'register'"
+            :class="isLogin ? 'bi-shield-lock-fill' : 'bi-person-plus-fill'"
+            class="bi text-gradient-cyan fs-2"
+          ></i>
+        </Transition>
       </div>
-      <h3 class="fw-bold text-white">Log In</h3>
+      <Transition name="fade-slide" mode="out-in">
+        <h3 :key="isLogin ? 'login' : 'register'" class="fw-bold text-white">
+          {{ isLogin ? 'Log In' : 'Create Account' }}
+        </h3>
+      </Transition>
     </div>
 
     <!-- Form Inputs -->
@@ -42,7 +72,7 @@ const handleSubmit = () => {
         </div>
       </div>
 
-      <div class="mb-4">
+      <div :class="isLogin ? 'mb-4' : 'mb-2'">
         <label class="form-label text-secondary small fw-bold tracking-wider mb-1">Password</label>
         <div class="input-group-custom">
           <i class="bi bi-key input-icon text-secondary"></i>
@@ -55,25 +85,54 @@ const handleSubmit = () => {
         </div>
       </div>
 
+      <Transition name="expand">
+        <div v-if="!isLogin" class="mb-4 overflow-hidden">
+          <label class="form-label text-secondary small fw-bold tracking-wider mb-1"
+            >Confirm Password</label
+          >
+          <div class="input-group-custom">
+            <i class="bi bi-check-all input-icon text-secondary"></i>
+            <input
+              type="password"
+              v-model="confirmPassword"
+              placeholder="Confirm Password"
+              class="form-control-custom text-white"
+            />
+          </div>
+        </div>
+      </Transition>
+
       <!-- Login selection -->
       <div class="d-flex flex-column justify-content-between align-items-center gap-3">
         <button
           @click="handleSubmit"
           class="btn btn-primary btn-lg w-100 py-3 py-md-2.5 fw-bold custom-login-btn"
         >
-          LOG IN
+          <Transition name="fade-slide" mode="out-in">
+            <span :key="isLogin ? 'login' : 'register'">
+              {{ isLogin ? 'LOG IN' : 'CREATE ACCOUNT' }}
+            </span>
+          </Transition>
         </button>
 
         <button class="btn btn-outline-light btn-lg w-100 py-3 py-md-2.5 fw-bold google-login-btn">
-          <i class="bi bi-google me-2"></i> LOGIN WITH GOOGLE
+          <i class="bi bi-google me-2"></i>
+          <Transition name="fade-slide" mode="out-in">
+            <span :key="isLogin ? 'login' : 'register'">
+              {{ isLogin ? 'LOGIN WITH GOOGLE' : 'SIGN UP WITH GOOGLE' }}
+            </span>
+          </Transition>
         </button>
       </div>
 
       <div class="text-center pt-2 mt-3">
         <p class="small text-secondary mb-0">
-          First time here?
-          <a href="#" class="text-gradient-cyan text-decoration-none fw-bold ms-1"
-            >Initialize Account</a
+          {{ isLogin ? 'First time here?' : 'Already have an account?' }}
+          <a
+            href="javascript:void(0)"
+            @click.prevent="toggleMode"
+            class="text-gradient-cyan text-decoration-none fw-bold ms-1"
+            >{{ isLogin ? 'Create an Account' : 'Log In' }}</a
           >
         </p>
       </div>
@@ -109,7 +168,6 @@ const handleSubmit = () => {
   align-items: center;
   justify-content: center;
 }
-
 
 .input-group-custom {
   position: relative;
@@ -170,7 +228,12 @@ const handleSubmit = () => {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   color: rgba(255, 255, 255, 0.9);
-  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -192,5 +255,55 @@ const handleSubmit = () => {
 
 .google-login-btn:hover i {
   transform: scale(1.1);
+}
+
+/* Transitions */
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.fade-scale-enter-active,
+.fade-scale-leave-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fade-scale-enter-from {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.fade-scale-leave-to {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.expand-enter-active,
+.expand-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 100px;
+  opacity: 1;
+}
+
+.expand-enter-from,
+.expand-leave-to {
+  max-height: 0;
+  opacity: 0;
+  margin-bottom: 0 !important;
+  transform: translateY(-10px);
 }
 </style>
