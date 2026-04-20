@@ -167,11 +167,10 @@ const handleSubmit = () => {
 .google-login-btn {
   font-size: 1rem;
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   color: rgba(255, 255, 255, 0.9);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;

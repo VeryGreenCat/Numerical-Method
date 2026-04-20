@@ -45,7 +45,7 @@ import LoginForm from '../components/auth/LoginForm.vue'
     >
       <div class="feature-card rounded-4 p-4">
         <div class="feature-icon-wrapper mb-3 mx-auto">
-          <i class="bi bi-graph-up text-cyan fs-3"></i>
+          <i class="bi bi-graph-up fs-3"></i>
         </div>
         <h5 class="text-white fw-bold">Root Solving</h5>
         <p class="small text-secondary">
@@ -55,7 +55,7 @@ import LoginForm from '../components/auth/LoginForm.vue'
 
       <div class="feature-card rounded-4 p-4">
         <div class="feature-icon-wrapper mb-3 mx-auto">
-          <i class="bi bi-grid-3x3 text-purple fs-3"></i>
+          <i class="bi bi-grid-3x3 fs-3"></i>
         </div>
         <h5 class="text-white fw-bold">Linear Algebra</h5>
         <p class="small text-secondary">
@@ -68,7 +68,7 @@ import LoginForm from '../components/auth/LoginForm.vue'
   <!-- Login Modal -->
   <div class="modal fade" id="loginModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
-      <div class="modal-content glass-card border-0 rounded-4 overflow-hidden">
+      <div class="modal-content border-0 rounded-4 overflow-hidden">
         <div class="modal-body p-0">
           <LoginForm />
         </div>
